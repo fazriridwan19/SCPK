@@ -1,0 +1,47 @@
+[System]
+Name='tingkat_keberhasilan'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='dosen'
+Range=[0 75]
+NumMFs=3
+MF1='buruk':'trapmf',[0 0 20 40]
+MF2='cukup':'trimf',[20 40 60]
+MF3='baik':'trapmf',[40 60 75 75]
+
+[Input2]
+Name='nilai'
+Range=[0 100]
+NumMFs=3
+MF1='buruk':'trapmf',[-37.5 -4.167 50 60]
+MF2='cukup':'trimf',[50 60 70]
+MF3='baik':'trapmf',[60 70 100 100]
+
+[Output1]
+Name='tingkat'
+Range=[0 100]
+NumMFs=3
+MF1='rendah':'trapmf',[0 0 50 60]
+MF2='sedang':'trimf',[50 60 70]
+MF3='tinggi':'trapmf',[60 70 100 100]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 2 (1) : 1
+1 3, 3 (1) : 1
+2 1, 1 (1) : 1
+2 2, 2 (1) : 1
+2 3, 3 (1) : 1
+3 1, 1 (1) : 1
+3 2, 2 (1) : 1
+3 3, 3 (1) : 1
