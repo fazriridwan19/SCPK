@@ -1,0 +1,45 @@
+[System]
+Name='FIStennis'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=0
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Weather'
+Range=[0 20]
+NumMFs=3
+MF1='rain':'gaussmf',[3.227 0.2]
+MF2='cloudy':'gaussmf',[2.548 10]
+MF3='sunny':'gaussmf',[2.251 19.85]
+
+[Input2]
+Name='Temp'
+Range=[0 10]
+NumMFs=3
+MF1='cold':'trimf',[-4.167 0 4]
+MF2='med':'trimf',[3 5 7]
+MF3='high':'trimf',[6 10 14.17]
+
+[Input3]
+Name='Humidity'
+Range=[0 10]
+NumMFs=2
+MF1='low':'trimf',[-4.167 0 6]
+MF2='high':'trimf',[4 10 14.17]
+
+[Output1]
+Name='Decision'
+Range=[0 1]
+NumMFs=3
+MF1='mf1':'trimf',[-0.416666666666667 0 0.416666666666667]
+MF2='mf2':'trimf',[0.0833333333333333 0.5 0.916666666666667]
+MF3='mf3':'trimf',[0.583333333333333 1 1.41666666666667]
+
+[Rules]
